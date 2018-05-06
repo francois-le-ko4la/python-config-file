@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-# config-json
+# python-config-file
 ## Description:
 
 This package loads the configuration values defined in external JSON or
@@ -10,8 +10,8 @@ YAML file, not the built-in data structures.
 ## Setup:
 
 ```shell
-git clone https://github.com/francois-le-ko4la/python-config-file.git
-cd python-config-file
+$ git clone https://github.com/francois-le-ko4la/python-config-file.git
+$ cd python-config-file
 $ make install
 ```
 

@@ -1,52 +1,53 @@
-# config-json
+# python-config-file
 ## Description:
 
-This package loads the configuration values defined in external JSON file,
-not the built-in data structures.
+This package loads the configuration values defined in external JSON or
+YAML file, not the built-in data structures.
 
 ## Setup:
 
 ```shell
-git clone https://github.com/francois-le-ko4la/config-from-json.git
-cd config-from-json
-make install
+$ git clone https://github.com/francois-le-ko4la/python-config-file.git
+$ cd python-config-file
+$ make install
 ```
 
 ## Test:
 
 This module has been tested and validated on Ubuntu.
 ```shell
-make test
+$ make test
 ```
 
 ## Use:
 
 ```python
-from configjson import ConfigJSON
 
+>>> from pytconfig import PytConfigFile
+>>> conf = "/path/to/the/file"
+>>> # PytConfigFile(path (str), PytConfigFile.{isjson|isyaml})
+>>> config = PytConfigFile(conf, PytConfigFile.isjson)
+>>> print(config['mykey'])
+>>> print(config.keys())
+>>> print(len(config))
 
-conf = "/path/to/the/json/file"
-config = ConfigJSON(conf)
-print(config['mykey'])
-print(config.keys())
-print(len(config))
 ```
 
 ## Project Structure
 ```
 .
-├── configjson
-│   ├── __about__.py
-│   ├── confjson.py
-│   ├── __init__.py
-│   └── pytfile.py
 ├── last_check.log
 ├── LICENSE
 ├── Makefile
 ├── MANIFEST.in
 ├── pictures
-│   ├── classes_config-json.png
-│   └── packages_config-json.png
+│   ├── classes_pytconfig.png
+│   └── packages_pytconfig.png
+├── pytconfig
+│   ├── __about__.py
+│   ├── config.py
+│   ├── file.py
+│   └── __init__.py
 ├── README.md
 ├── requirements.txt
 ├── runtime.txt
@@ -54,6 +55,7 @@ print(len(config))
 ├── setup.py
 └── tests
     ├── facebook.json
+    ├── facebook.yaml
     ├── test_doctest.py
     ├── test_pycodestyle.py
     └── use_it.py
@@ -116,7 +118,7 @@ class PytConfigFile(dict):
 ```
 
 ```
-This Class provides a dict from a JSON File.
+This Class provides a dict from a JSON File or YAML file.
 You can use it to avoid a lot of CONST in your scripts.
 
 Use:
@@ -142,7 +144,7 @@ Use:
    >>> print(len(config))
    3
    >>> cur_file = path + '../tests/facebook.yaml'
-   >>> config = PytConfigFile(cur_file, PytConfigFile.isyaml)
+   >>> configyaml = PytConfigFile(cur_file, PytConfigFile.isyaml)
    >>> print(configyaml['debug'])
    True
    >>> print(configyaml.keys())

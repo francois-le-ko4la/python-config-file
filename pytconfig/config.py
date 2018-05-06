@@ -2,13 +2,12 @@
 # -*- coding: utf-8 -*-
 """
 
- #####                                                #
-#     #   ####   #    #  ######     #     ####        #   ####    ####   #    #
-#        #    #  ##   #  #          #    #    #       #  #       #    #  ##   #
-#        #    #  # #  #  #####      #    #            #   ####   #    #  # #  #
-#        #    #  #  # #  #          #    #  ### #     #       #  #    #  #  # #
-#     #  #    #  #   ##  #          #    #    # #     #  #    #  #    #  #   ##
- #####    ####   #    #  #          #     ####   #####    ####    ####   #    #
+  ####    ####   #    #  ######
+ #    #  #    #  ##   #  #
+ #       #    #  # #  #  #####
+ #       #    #  #  # #  #
+ #    #  #    #  #   ##  #
+  ####    ####   #    #  #
 
 """
 
@@ -26,7 +25,7 @@ class Default:
 
 class PytConfigFile(dict):
     """
-    This Class provides a dict from a JSON File.
+    This Class provides a dict from a JSON File or YAML file.
     You can use it to avoid a lot of CONST in your scripts.
 
     Use:
