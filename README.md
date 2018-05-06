@@ -70,8 +70,8 @@ $ make test
 - [X] Validate features
 - [X] Write Doc/stringdoc
 - [X] Run PEP8 validation
-- [ ] Clean & last check
-- [ ] Release
+- [X] Clean & last check
+- [X] Release : 0.1.4
 
 ## License
 
