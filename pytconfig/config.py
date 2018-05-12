@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# pylint: disable=R0903
 """
 
   ####    ####   #    #  ######
@@ -17,6 +18,9 @@ from pytconfig.file import PytFile
 
 
 class Default:
+    """
+    default values
+    """
     encode = 'utf-8'
     msg_cantload = "Can't load the file..."
     key_filename = 'filename'
@@ -63,20 +67,28 @@ class PytConfigFile(dict):
     def __init__(self, filename, filetype):
         super().__init__()
         self.__configfile = PytFile(filename)
-        self.__loader = filetype(self)
+        self.__loader = filetype()
         self.__load()
 
-    def isjson(self):
+    @staticmethod
+    def isjson():
+        """
+        use it to define the file type
+        """
         return json.loads
 
-    def isyaml(self):
+    @staticmethod
+    def isyaml():
+        """
+        use it to define the file type
+        """
         return yaml.load
 
     def __load(self):
         try:
             self[Default.key_filename] = str(self.__configfile)
             self[Default.key_data] = self.__loader(self.__configfile.read())
-        except ValueError as error:
+        except ValueError:
             raise ValueError(Default.msg_cantload)
 
     def __getitem__(self, key):

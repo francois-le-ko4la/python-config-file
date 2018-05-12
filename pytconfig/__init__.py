@@ -73,6 +73,7 @@ print(len(config))
 - [X] Run PEP8 validation
 - [X] Clean & last check
 - [X] Release : 0.1.4
+- [X] Release : 0.1.5
 
 ## License
 
