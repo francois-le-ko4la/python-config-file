@@ -12,7 +12,6 @@
 """
 
 import pathlib
-import os
 
 
 class PytFile(object):
@@ -34,10 +33,14 @@ class PytFile(object):
     """
 
     def __init__(self, filename):
+        self.__path = pathlib.Path()
         self.filename = filename
 
     @property
     def filename(self):
+        """
+        /path/to/the/file
+        """
         return self.__path
 
     @filename.setter
@@ -55,4 +58,7 @@ class PytFile(object):
         return repr(self)
 
     def read(self):
-        return self.filename.read_text()
+        """
+        Read the content
+        """
+        return self.__path.read_text()

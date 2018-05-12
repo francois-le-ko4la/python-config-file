@@ -91,24 +91,16 @@ pycodestyle>=2.3.1
 
 ```
 ### UML Diagram
-![alt text](pictures/classes_pytconfig.png)
+![alt text](/home/ko4la/GIT/python-config-file/pictures/classes_pytconfig.png)
 
 ### Objects
 [PytConfigFile()](#pytconfigfile)<br />
-[PytConfigFile.__getitem__(self, key)](#pytconfigfilegetitemself-key)<br />
-[PytConfigFile.__init__(self, filename, filetype)](#pytconfigfileinitself-filename-filetype)<br />
-[PytConfigFile.__iter__(self)](#pytconfigfileiterself)<br />
-[PytConfigFile.__len__(self)](#pytconfigfilelenself)<br />
-[PytConfigFile.__load(self)](#pytconfigfile__loadself)<br />
 [PytConfigFile.isjson(self)](#pytconfigfileisjsonself)<br />
 [PytConfigFile.isyaml(self)](#pytconfigfileisyamlself)<br />
 [PytConfigFile.items(self)](#pytconfigfileitemsself)<br />
 [PytConfigFile.keys(self)](#pytconfigfilekeysself)<br />
 [PytFile()](#pytfile)<br />
 [@Property: PytFile.filename](#property-pytfilefilename)<br />
-[PytFile.__init__(self, filename)](#pytfileinitself-filename)<br />
-[PytFile.__repr__(self)](#pytfilereprself)<br />
-[PytFile.__str__(self)](#pytfilestrself)<br />
 [PytFile.read(self)](#pytfilereadself)<br />
 
 
@@ -153,41 +145,6 @@ Use:
    3
 ```
 
-##### PytConfigFile.__getitem__(self, key)
-```python
-def PytConfigFile.__getitem__(self, key):
-```
-> <br />
-> x.__getitem__(y) <==> x[y]<br />
-> <br />
-##### PytConfigFile.__init__(self, filename, filetype)
-```python
-def PytConfigFile.__init__(self, filename, filetype):
-```
-> <br />
-> Initialize self.  See help(type(self)) for accurate signature.<br />
-> <br />
-##### PytConfigFile.__iter__(self)
-```python
-def PytConfigFile.__iter__(self):
-```
-> <br />
-> Implement iter(self).<br />
-> <br />
-##### PytConfigFile.__len__(self)
-```python
-def PytConfigFile.__len__(self):
-```
-> <br />
-> Return len(self).<br />
-> <br />
-##### PytConfigFile.__load(self)
-```python
-def PytConfigFile.__load(self):
-```
-> <br />
-> Docstring empty<br />
-> <br />
 ##### PytConfigFile.isjson(self)
 ```python
 def PytConfigFile.isjson(self):
@@ -246,27 +203,6 @@ def PytFile.filename(self, value):
 ```
 > <br />
 > @Property<br />
-> <br />
-##### PytFile.__init__(self, filename)
-```python
-def PytFile.__init__(self, filename):
-```
-> <br />
-> Initialize self.  See help(type(self)) for accurate signature.<br />
-> <br />
-##### PytFile.__repr__(self)
-```python
-def PytFile.__repr__(self):
-```
-> <br />
-> Return repr(self).<br />
-> <br />
-##### PytFile.__str__(self)
-```python
-def PytFile.__str__(self):
-```
-> <br />
-> Return str(self).<br />
 > <br />
 ##### PytFile.read(self)
 ```python

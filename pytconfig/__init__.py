@@ -25,15 +25,13 @@ $ make test
 ## Use:
 
 ```python
-
->>> from pytconfig import PytConfigFile
->>> conf = "/path/to/the/file"
->>> # PytConfigFile(path (str), PytConfigFile.{isjson|isyaml})
->>> config = PytConfigFile(conf, PytConfigFile.isjson)
->>> print(config['mykey'])
->>> print(config.keys())
->>> print(len(config))
-
+from pytconfig import PytConfigFile
+conf = "/path/to/the/file"
+# PytConfigFile(path (str), PytConfigFile.{isjson|isyaml})
+config = PytConfigFile(conf, PytConfigFile.isjson)
+print(config['mykey'])
+print(config.keys())
+print(len(config))
 ```
 
 ## Project Structure

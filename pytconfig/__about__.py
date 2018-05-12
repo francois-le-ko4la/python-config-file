@@ -11,7 +11,7 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 """
 
-__name__ = 'pytconfig'
+__pkg_name__ = 'pytconfig'
 __root_dir__ = 'pytconfig'
 __version__ = '0.1.4'
 __author__ = 'Ko4lA'
