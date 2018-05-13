@@ -22,15 +22,13 @@ $ make test
 ## Use:
 
 ```python
-
->>> from pytconfig import PytConfigFile
->>> conf = "/path/to/the/file"
->>> # PytConfigFile(path (str), PytConfigFile.{isjson|isyaml})
->>> config = PytConfigFile(conf, PytConfigFile.isjson)
->>> print(config['mykey'])
->>> print(config.keys())
->>> print(len(config))
-
+from pytconfig import PytConfigFile
+conf = "/path/to/the/file"
+# PytConfigFile(path (str), PytConfigFile.{isjson|isyaml})
+config = PytConfigFile(conf, PytConfigFile.isjson)
+print(config['mykey'])
+print(config.keys())
+print(len(config))
 ```
 
 ## Project Structure
@@ -72,6 +70,7 @@ $ make test
 - [X] Run PEP8 validation
 - [X] Clean & last check
 - [X] Release : 0.1.4
+- [X] Release : 0.1.5
 
 ## License
 
@@ -95,8 +94,8 @@ pycodestyle>=2.3.1
 
 ### Objects
 [PytConfigFile()](#pytconfigfile)<br />
-[PytConfigFile.isjson(self)](#pytconfigfileisjsonself)<br />
-[PytConfigFile.isyaml(self)](#pytconfigfileisyamlself)<br />
+[PytConfigFile.isjson()](#pytconfigfileisjson)<br />
+[PytConfigFile.isyaml()](#pytconfigfileisyaml)<br />
 [PytConfigFile.items(self)](#pytconfigfileitemsself)<br />
 [PytConfigFile.keys(self)](#pytconfigfilekeysself)<br />
 [PytFile()](#pytfile)<br />
@@ -145,19 +144,21 @@ Use:
    3
 ```
 
-##### PytConfigFile.isjson(self)
+##### PytConfigFile.isjson()
 ```python
-def PytConfigFile.isjson(self):
+@staticmethod
+def PytConfigFile.isjson():
 ```
 > <br />
-> Docstring empty<br />
+> use it to define the file type<br />
 > <br />
-##### PytConfigFile.isyaml(self)
+##### PytConfigFile.isyaml()
 ```python
-def PytConfigFile.isyaml(self):
+@staticmethod
+def PytConfigFile.isyaml():
 ```
 > <br />
-> Docstring empty<br />
+> use it to define the file type<br />
 > <br />
 ##### PytConfigFile.items(self)
 ```python
@@ -202,12 +203,12 @@ def PytFile.filename(self, value):
 
 ```
 > <br />
-> @Property<br />
+> /path/to/the/file<br />
 > <br />
 ##### PytFile.read(self)
 ```python
 def PytFile.read(self):
 ```
 > <br />
-> Docstring empty<br />
+> Read the content<br />
 > <br />
