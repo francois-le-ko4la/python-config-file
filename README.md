@@ -22,13 +22,15 @@ $ make test
 ## Use:
 
 ```python
-from pytconfig import PytConfigFile
-conf = "/path/to/the/file"
-# PytConfigFile(path (str), PytConfigFile.{isjson|isyaml})
-config = PytConfigFile(conf, PytConfigFile.isjson)
-print(config['mykey'])
-print(config.keys())
-print(len(config))
+
+>>> from pytconfig import PytConfigFile
+>>> conf = "/path/to/the/file"
+>>> # PytConfigFile(path (str), PytConfigFile.{isjson|isyaml})
+>>> config = PytConfigFile(conf, PytConfigFile.isjson)
+>>> print(config['mykey'])
+>>> print(config.keys())
+>>> print(len(config))
+
 ```
 
 ## Project Structure
@@ -89,12 +91,12 @@ pycodestyle>=2.3.1
 
 ```
 ### UML Diagram
-![alt text](/home/ko4la/GIT/python-config-file/pictures/classes_pytconfig.png)
+![alt text](pictures/classes_pytconfig.png)
 
 ### Objects
 [PytConfigFile()](#pytconfigfile)<br />
-[PytConfigFile.isjson()](#pytconfigfileisjson)<br />
-[PytConfigFile.isyaml()](#pytconfigfileisyaml)<br />
+[PytConfigFile.isjson(self)](#pytconfigfileisjsonself)<br />
+[PytConfigFile.isyaml(self)](#pytconfigfileisyamlself)<br />
 [PytConfigFile.items(self)](#pytconfigfileitemsself)<br />
 [PytConfigFile.keys(self)](#pytconfigfilekeysself)<br />
 [PytFile()](#pytfile)<br />
@@ -143,21 +145,19 @@ Use:
    3
 ```
 
-##### PytConfigFile.isjson()
+##### PytConfigFile.isjson(self)
 ```python
-@staticmethod
-def PytConfigFile.isjson():
+def PytConfigFile.isjson(self):
 ```
 > <br />
-> use it to define the file type<br />
+> Docstring empty<br />
 > <br />
-##### PytConfigFile.isyaml()
+##### PytConfigFile.isyaml(self)
 ```python
-@staticmethod
-def PytConfigFile.isyaml():
+def PytConfigFile.isyaml(self):
 ```
 > <br />
-> use it to define the file type<br />
+> Docstring empty<br />
 > <br />
 ##### PytConfigFile.items(self)
 ```python
@@ -202,12 +202,12 @@ def PytFile.filename(self, value):
 
 ```
 > <br />
-> /path/to/the/file<br />
+> @Property<br />
 > <br />
 ##### PytFile.read(self)
 ```python
 def PytFile.read(self):
 ```
 > <br />
-> Read the content<br />
+> Docstring empty<br />
 > <br />
