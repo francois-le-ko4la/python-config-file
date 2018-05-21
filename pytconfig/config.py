@@ -17,14 +17,12 @@ import yaml
 from pytconfig.file import PytFile
 
 
-class Default:
-    """
-    default values
-    """
-    encode = 'utf-8'
-    msg_cantload = "Can't load the file..."
-    key_filename = 'filename'
-    key_data = 'data'
+DEFAULT = {
+        "encode": "utf-8",
+        "msg_cantload": "Can't load the file...",
+        "key_filename": "filename",
+        "key_data": "data"
+}
 
 
 class PytConfigFile(dict):
@@ -86,23 +84,28 @@ class PytConfigFile(dict):
 
     def __load(self):
         try:
-            self[Default.key_filename] = str(self.__configfile)
-            self[Default.key_data] = self.__loader(self.__configfile.read())
+            self[DEFAULT["key_filename"]] = str(self.__configfile)
+            self[DEFAULT["key_data"]] = self.__loader(self.__configfile.read())
         except ValueError:
-            raise ValueError(Default.msg_cantload)
+            raise ValueError(DEFAULT["msg_cantload"])
 
     def __getitem__(self, key):
-        current_data = super().__getitem__(Default.key_data)
+        current_data = super().__getitem__(DEFAULT["key_data"])
         return current_data[key]
 
     def __len__(self):
-        return len(super().__getitem__(Default.key_data))
+        return len(super().__getitem__(DEFAULT["key_data"]))
 
     def __iter__(self):
-        return iter(super().__getitem__(Default.key_data))
+        return iter(super().__getitem__(DEFAULT["key_data"]))
 
     def keys(self):
-        return super().__getitem__(Default.key_data).keys()
+        return super().__getitem__(DEFAULT["key_data"]).keys()
 
     def items(self):
-        return super().__getitem__(Default.key_data).items()
+        return super().__getitem__(DEFAULT["key_data"]).items()
+
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()

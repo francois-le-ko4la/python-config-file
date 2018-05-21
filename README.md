@@ -71,11 +71,14 @@ print(len(config))
 - [X] Clean & last check
 - [X] Release : 0.1.4
 - [X] Release : 0.1.5
+- [X] Fix global header
+- [X] Fix tests
+- [X] Release : 0.1.6
 
 ## License
 
 This package is distributed under the [GPLv3 license](./LICENSE)
-## Dev notes
+
 ### Runtime
 
 ```
@@ -96,12 +99,13 @@ pycodestyle>=2.3.1
 [PytConfigFile()](#pytconfigfile)<br />
 [PytConfigFile.isjson()](#pytconfigfileisjson)<br />
 [PytConfigFile.isyaml()](#pytconfigfileisyaml)<br />
-[PytConfigFile.items(self)](#pytconfigfileitemsself)<br />
-[PytConfigFile.keys(self)](#pytconfigfilekeysself)<br />
+[PytConfigFile.keys()](#pytconfigfilekeys)<br />
+[PytConfigFile.items()](#pytconfigfileitems)<br />
 [PytFile()](#pytfile)<br />
-[@Property: PytFile.filename](#property-pytfilefilename)<br />
-[PytFile.read(self)](#pytfilereadself)<br />
-
+[PytFile.filename()](#pytfilefilename)<br />
+[PytFile.filename()](#pytfilefilename)<br />
+[PytFile.exists()](#pytfileexists)<br />
+[PytFile.read()](#pytfileread)<br />
 
 #### PytConfigFile()
 ```python
@@ -160,19 +164,21 @@ def PytConfigFile.isyaml():
 > <br />
 > use it to define the file type<br />
 > <br />
-##### PytConfigFile.items(self)
+##### PytConfigFile.keys()
 ```python
-def PytConfigFile.items(self):
-```
-> <br />
-> D.items() -> a set-like object providing a view on D's items<br />
-> <br />
-##### PytConfigFile.keys(self)
-```python
+
 def PytConfigFile.keys(self):
 ```
 > <br />
-> D.keys() -> a set-like object providing a view on D's keys<br />
+> None<br />
+> <br />
+##### PytConfigFile.items()
+```python
+
+def PytConfigFile.items(self):
+```
+> <br />
+> None<br />
 > <br />
 #### PytFile()
 ```python
@@ -180,35 +186,63 @@ class PytFile(object):
 ```
 
 ```
+>>> data_file = PytFile("lorem")
+Traceback (most recent call last):
+...
+OSError: File not found !
+>>> data_file = PytFile(None)
+Traceback (most recent call last):
+...
+OSError: File not found !
 >>> fstab = PytFile("/etc/fstab")
->>> print(fstab.filename.stem)
-fstab
->>> print(fstab)
+>>> fstab.filename.stem
+'fstab'
+>>> fstab
 /etc/fstab
 >>> # pathlib to run the test everywhere
 >>> import pathlib
 >>> path = str(pathlib.Path(__file__).resolve().parent) + "/"
 >>> license = PytFile(path + "../LICENSE")
->>> print(license.filename.stem)
-LICENSE
->>> #print(license.read())
+>>> license.filename.stem
+'LICENSE'
+>>> license.exists()
+True
+>>> result = license.read()
+>>> result = result.split("\n")
+>>> result[0]
+'                    GNU GENERAL PUBLIC LICENSE'
 ```
 
-##### @Property: PytFile.filename
+##### PytFile.filename()
 ```python
 @property
 def PytFile.filename(self):
-@filename.setter
-def PytFile.filename(self, value):
-
 ```
 > <br />
 > /path/to/the/file<br />
 > <br />
-##### PytFile.read(self)
+##### PytFile.filename()
 ```python
+@setter
+def PytFile.filename(self, value):
+```
+> <br />
+> None<br />
+> <br />
+##### PytFile.exists()
+```python
+
+def PytFile.exists(self):
+```
+> <br />
+> file exists<br />
+> <br />
+##### PytFile.read()
+```python
+
 def PytFile.read(self):
 ```
 > <br />
 > Read the content<br />
 > <br />
+

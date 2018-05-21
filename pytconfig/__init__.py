@@ -74,6 +74,9 @@ print(len(config))
 - [X] Clean & last check
 - [X] Release : 0.1.4
 - [X] Release : 0.1.5
+- [X] Fix global header
+- [X] Fix tests
+- [X] Release : 0.1.6
 
 ## License
 
@@ -84,3 +87,7 @@ This package is distributed under the [GPLv3 license](./LICENSE)
 from pytconfig import __about__
 from pytconfig.file import PytFile
 from pytconfig.config import PytConfigFile
+
+__version__ = __about__.__version__
+__author__ = __about__.__author__
+__license__ = __about__.__license__
