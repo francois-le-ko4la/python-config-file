@@ -72,11 +72,10 @@ print(len(config))
 - [X] Write Doc/stringdoc
 - [X] Run PEP8 validation
 - [X] Clean & last check
-- [X] Release : 0.1.4
-- [X] Release : 0.1.5
 - [X] Fix global header
 - [X] Fix tests
-- [X] Release : 0.1.6
+- [X] Fix doc
+- [X] Release : 0.1.7
 
 ## License
 

@@ -69,11 +69,10 @@ print(len(config))
 - [X] Write Doc/stringdoc
 - [X] Run PEP8 validation
 - [X] Clean & last check
-- [X] Release : 0.1.4
-- [X] Release : 0.1.5
 - [X] Fix global header
 - [X] Fix tests
-- [X] Release : 0.1.6
+- [X] Fix doc
+- [X] Release : 0.1.7
 
 ## License
 
@@ -102,8 +101,7 @@ pycodestyle>=2.3.1
 [PytConfigFile.keys()](#pytconfigfilekeys)<br />
 [PytConfigFile.items()](#pytconfigfileitems)<br />
 [PytFile()](#pytfile)<br />
-[PytFile.filename()](#pytfilefilename)<br />
-[PytFile.filename()](#pytfilefilename)<br />
+[@Property PytFile.filename](#property-pytfilefilename)<br />
 [PytFile.exists()](#pytfileexists)<br />
 [PytFile.read()](#pytfileread)<br />
 
@@ -213,21 +211,13 @@ True
 '                    GNU GENERAL PUBLIC LICENSE'
 ```
 
-##### PytFile.filename()
+##### @Property PytFile.filename
 ```python
 @property
 def PytFile.filename(self):
 ```
 > <br />
 > /path/to/the/file<br />
-> <br />
-##### PytFile.filename()
-```python
-@setter
-def PytFile.filename(self, value):
-```
-> <br />
-> None<br />
 > <br />
 ##### PytFile.exists()
 ```python
