@@ -83,10 +83,6 @@ This package is distributed under the [GPLv3 license](./LICENSE)
 
 """
 
-from pytconfig import __about__
+from pytconfig.__about__ import __version__, __author__, __license__, __url__
 from pytconfig.file import PytFile
 from pytconfig.config import PytConfigFile
-
-__version__ = __about__.__version__
-__author__ = __about__.__author__
-__license__ = __about__.__license__
