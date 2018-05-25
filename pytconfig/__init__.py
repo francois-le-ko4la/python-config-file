@@ -80,6 +80,8 @@ print(len(config))
 - [X] improve the doc
 - [X] remove old tests
 - [X] Release : 0.1.9
+- [X] improve Makefile
+- [X] Release : 0.1.10
 
 
 ## License

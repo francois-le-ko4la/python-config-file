@@ -22,10 +22,18 @@ dev:
 	@pip3 install -e .
 
 install:
-	@pip3 install .
+	@$(MAKE) clean
+	@./setup.py sdist bdist_wheel
+	@sudo -H pip3 install . --process-dependency-links --trusted-host github.com
+
+upgrade:
+	@$(MAKE) clean
+	@./setup.py sdist bdist_wheel
+	@sudo -H pip3 install . --process-dependency-links --trusted-host github.com --upgrade
 
 uninstall:
-	@pip3 uninstall -y $(PACKAGE_NAME)
+	@pip3 show $(PACKAGE_NAME)
+	@sudo -H pip3 uninstall -y $(PACKAGE_NAME)
 
 clean:
 	@sudo rm -Rf .eggs *.egg-info .cache .coverage .tox build dist docs/build htmlcov .pytest_cache
