@@ -23,7 +23,7 @@ dev:
 
 install:
 	@$(MAKE) clean
-	@./setup.py sdist bdist_wheel
+	#@./setup.py sdist bdist_wheel
 	@sudo -H pip3 install . --process-dependency-links --trusted-host github.com
 
 upgrade:
