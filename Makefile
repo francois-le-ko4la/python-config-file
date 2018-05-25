@@ -24,12 +24,12 @@ dev:
 install:
 	@$(MAKE) clean
 	#@./setup.py sdist bdist_wheel
-	@sudo -H pip3 install . --process-dependency-links --trusted-host github.com
+	@sudo -H pip3 install .
 
 upgrade:
 	@$(MAKE) clean
 	@./setup.py sdist bdist_wheel
-	@sudo -H pip3 install . --process-dependency-links --trusted-host github.com --upgrade
+	@sudo -H pip3 install . --upgrade
 
 uninstall:
 	@pip3 show $(PACKAGE_NAME)

@@ -13,12 +13,14 @@ Test:
 
 """
 import os
-from setuptools import setup
+from setuptools import setup, find_packages
 from setuptools.config import read_configuration
 import warnings
 
 
 warnings.filterwarnings("ignore")
+packages=find_packages()
+print("PKG Found: {} ".format(packages))
 cfg = read_configuration('./setup.cfg')
 # print(cfg)
 cfg["options"].update(cfg["metadata"])
