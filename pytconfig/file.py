@@ -52,7 +52,7 @@ class PytFile(object):
     @property
     def filename(self):
         """
-        /path/to/the/file
+        @Property filename (str): /path/to/the/file
         """
         return self.__path
 
@@ -68,7 +68,7 @@ class PytFile(object):
 
     def exists(self):
         """
-        file exists
+        exists (bool): True if the file exists.
         """
         return self.__exists
 

@@ -10,34 +10,35 @@ This script is provided in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 """
-from pkg_resources import get_distribution
 import json
+from pkg_resources import get_distribution
 
 
 __pkg_name__ = __name__.split(".")[0]
-__pkg_name__ = "pytconfig"
+
 
 try:
-    about = json.loads(get_distribution(__pkg_name__).get_metadata("metadata.json"))
-    __version__ = about["version"]
-    __author__ = about["extensions"]["python.details"]["contacts"][0]["name"]
-    __email__ = about["extensions"]["python.details"]["contacts"][0]["email"]
-    __url__ = about["download_url"]
-    __license__ = about["license"]
-    __description__ = about["summary"]
+    ABOUT = json.loads(
+        get_distribution(__pkg_name__).get_metadata("metadata.json")
+    )
+    __version__ = ABOUT["version"]
+    __author__ = ABOUT["extensions"]["python.details"]["contacts"][0]["name"]
+    __email__ = ABOUT["extensions"]["python.details"]["contacts"][0]["email"]
+    __url__ = ABOUT["download_url"]
+    __license__ = ABOUT["license"]
+    __description__ = ABOUT["summary"]
 
 except FileNotFoundError:
     try:
-        pkgInfo = get_distribution(__pkg_name__).get_metadata('METADATA')
+        PKGINFO = get_distribution(__pkg_name__).get_metadata('METADATA')
     except FileNotFoundError:
-        pkgInfo = get_distribution(__pkg_name__).get_metadata('PKG-INFO')
+        PKGINFO = get_distribution(__pkg_name__).get_metadata('PKG-INFO')
 
     __version__ = get_distribution(__pkg_name__).version
 
     from email import message_from_string
-    msg = message_from_string(pkgInfo)
-    for key, value in msg.items():
-        print("{}-{}".format(key, value))
+    MSG = message_from_string(PKGINFO)
+    for key, value in MSG.items():
         if key.startswith("Author-email"):
             __email__ = value
         elif key.startswith("Author"):

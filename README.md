@@ -37,7 +37,6 @@ print(len(config))
 ├── last_check.log
 ├── LICENSE
 ├── Makefile
-├── MANIFEST.in
 ├── pictures
 │   ├── classes_pytconfig.png
 │   └── packages_pytconfig.png
@@ -55,8 +54,7 @@ print(len(config))
     ├── facebook.json
     ├── facebook.yaml
     ├── test_doctest.py
-    ├── test_pycodestyle.py
-    └── use_it.py
+    └── test_pycodestyle.py
 ```
 
 ## Todo:
@@ -73,6 +71,13 @@ print(len(config))
 - [X] Fix tests
 - [X] Fix doc
 - [X] Release : 0.1.7
+- [X] change (un)install process
+- [X] remove MANIFEST.in
+- [X] manage global var: __version__....
+- [X] improve the doc
+- [X] remove old tests
+- [X] Release : 0.1.9
+
 
 ## License
 
@@ -217,7 +222,7 @@ True
 def PytFile.filename(self):
 ```
 > <br />
-> /path/to/the/file<br />
+> @Property filename (str): /path/to/the/file<br />
 > <br />
 ##### PytFile.exists()
 ```python
@@ -225,7 +230,7 @@ def PytFile.filename(self):
 def PytFile.exists(self):
 ```
 > <br />
-> file exists<br />
+> exists (bool): True if the file exists.<br />
 > <br />
 ##### PytFile.read()
 ```python

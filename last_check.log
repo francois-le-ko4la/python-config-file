@@ -1,34 +1,24 @@
 running pytest
-Searching for pytest
-Best match: pytest 3.5.1
-Processing pytest-3.5.1-py3.6.egg
-
-Using /home/ko4la/GIT/python-config-file/.eggs/pytest-3.5.1-py3.6.egg
 running egg_info
 writing pytconfig.egg-info/PKG-INFO
 writing dependency_links to pytconfig.egg-info/dependency_links.txt
+writing requirements to pytconfig.egg-info/requires.txt
 writing top-level names to pytconfig.egg-info/top_level.txt
 reading manifest file 'pytconfig.egg-info/SOURCES.txt'
-reading manifest template 'MANIFEST.in'
 writing manifest file 'pytconfig.egg-info/SOURCES.txt'
 running build_ext
 ============================= test session starts ==============================
 platform linux -- Python 3.6.5, pytest-3.5.1, py-1.5.3, pluggy-0.6.0 -- /usr/bin/python3
 cachedir: .pytest_cache
 rootdir: /home/ko4la/GIT/python-config-file, inifile: setup.cfg
-collecting ... collected 12 items
+collecting ... collected 7 items
 
-tests/test_doctest.py::RunDocTest::test_mod___about__.py PASSED          [  8%]
-tests/test_doctest.py::RunDocTest::test_mod___init__.py PASSED           [ 16%]
-tests/test_doctest.py::RunDocTest::test_mod_config.py PASSED             [ 25%]
-tests/test_doctest.py::RunDocTest::test_mod_file.py PASSED               [ 33%]
-tests/test_pycodestyle.py::RunPyCodeStyle::test___about__.py PASSED      [ 41%]
-tests/test_pycodestyle.py::RunPyCodeStyle::test___init__.py PASSED       [ 50%]
-tests/test_pycodestyle.py::RunPyCodeStyle::test_config.py PASSED         [ 58%]
-tests/test_pycodestyle.py::RunPyCodeStyle::test_file.py PASSED           [ 66%]
-tests/test_pycodestyle.py::RunPyCodeStyle::test_setup.py PASSED          [ 75%]
-tests/test_pycodestyle.py::RunPyCodeStyle::test_test_doctest.py PASSED   [ 83%]
-tests/test_pycodestyle.py::RunPyCodeStyle::test_test_pycodestyle.py PASSED [ 91%]
-tests/test_pycodestyle.py::RunPyCodeStyle::test_use_it.py PASSED         [100%]
+tests/test_pycodestyle.py::RunPyCodeStyle::test___about__.py PASSED      [ 14%]
+tests/test_pycodestyle.py::RunPyCodeStyle::test___init__.py PASSED       [ 28%]
+tests/test_pycodestyle.py::RunPyCodeStyle::test_config.py PASSED         [ 42%]
+tests/test_pycodestyle.py::RunPyCodeStyle::test_file.py PASSED           [ 57%]
+tests/test_pycodestyle.py::RunPyCodeStyle::test_setup.py PASSED          [ 71%]
+tests/test_pycodestyle.py::RunPyCodeStyle::test_test_doctest.py PASSED   [ 85%]
+tests/test_pycodestyle.py::RunPyCodeStyle::test_test_pycodestyle.py PASSED [100%]
 
-========================== 12 passed in 0.51 seconds ===========================
+=========================== 7 passed in 0.12 seconds ===========================

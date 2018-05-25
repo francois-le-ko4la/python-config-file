@@ -18,10 +18,10 @@ from pytconfig.file import PytFile
 
 
 DEFAULT = {
-        "encode": "utf-8",
-        "msg_cantload": "Can't load the file...",
-        "key_filename": "filename",
-        "key_data": "data"
+    "encode": "utf-8",
+    "msg_cantload": "Can't load the file...",
+    "key_filename": "filename",
+    "key_data": "data"
 }
 
 
