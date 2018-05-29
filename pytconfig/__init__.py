@@ -76,13 +76,15 @@ print(len(config))
 - [X] Release : 0.1.7
 - [X] change (un)install process
 - [X] remove MANIFEST.in
-- [X] manage global var: __version__....
+- [X] manage global var: __ version __...
 - [X] improve the doc
 - [X] remove old tests
 - [X] Release : 0.1.9
 - [X] improve Makefile
 - [X] Release : 0.1.10
-
+- [X] Fix setup.py
+- [X] Fix setup.cfg
+- [X] Release : 1.1.0
 
 ## License
 
@@ -90,6 +92,22 @@ This package is distributed under the [GPLv3 license](./LICENSE)
 
 """
 
-from pytconfig.__about__ import __version__, __author__, __license__, __url__
+from pytconfig.__about__ import (
+    __version__,
+    __email__,
+    __author__,
+    __url__,
+    __license__,
+    FILENAME,
+    DATA
+)
+from pytconfig.exceptions import (
+    PytConfigError,
+    PytConfigFileNotFound,
+    PytConfigLoadError
+)
 from pytconfig.file import PytFile
 from pytconfig.config import PytConfigFile
+
+
+__all__ = ["exceptions", "config", "file"]

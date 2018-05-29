@@ -14,15 +14,9 @@
 
 import json
 import yaml
+from pytconfig.__about__ import FILENAME, DATA
 from pytconfig.file import PytFile
-
-
-DEFAULT = {
-    "encode": "utf-8",
-    "msg_cantload": "Can't load the file...",
-    "key_filename": "filename",
-    "key_data": "data"
-}
+from pytconfig.exceptions import PytConfigLoadError
 
 
 class PytConfigFile(dict):
@@ -34,16 +28,16 @@ class PytConfigFile(dict):
        >>> # pathlib to run the test everywhere
        >>> import pathlib
        >>> path = str(pathlib.Path(__file__).resolve().parent) + "/"
-       >>> cur_file = path + '../tests/facebook.jso'
+       >>> cur_file = '/etc/fst'
        >>> config = PytConfigFile(cur_file, PytConfigFile.isjson)
        Traceback (most recent call last):
        ...
-       OSError: File not found !
+       pytconfig.exceptions.PytConfigFileNotFound: File "/etc/fst" not found!
        >>> cur_file = path + '../LICENSE'
        >>> config = PytConfigFile(cur_file, PytConfigFile.isjson)
        Traceback (most recent call last):
        ...
-       ValueError: Can't load the file...
+       pytconfig.exceptions.PytConfigLoadError: Can't load the configuration...
        >>> cur_file = path + '../tests/facebook.json'
        >>> config = PytConfigFile(cur_file, PytConfigFile.isjson)
        >>> print(config['debug'])
@@ -84,26 +78,26 @@ class PytConfigFile(dict):
 
     def __load(self):
         try:
-            self[DEFAULT["key_filename"]] = str(self.__configfile)
-            self[DEFAULT["key_data"]] = self.__loader(self.__configfile.read())
+            self[FILENAME] = str(self.__configfile)
+            self[DATA] = self.__loader(self.__configfile.read())
         except ValueError:
-            raise ValueError(DEFAULT["msg_cantload"])
+            raise PytConfigLoadError()
 
     def __getitem__(self, key):
-        current_data = super().__getitem__(DEFAULT["key_data"])
+        current_data = super().__getitem__(DATA)
         return current_data[key]
 
     def __len__(self):
-        return len(super().__getitem__(DEFAULT["key_data"]))
+        return len(super().__getitem__(DATA))
 
     def __iter__(self):
-        return iter(super().__getitem__(DEFAULT["key_data"]))
+        return iter(super().__getitem__(DATA))
 
     def keys(self):
-        return super().__getitem__(DEFAULT["key_data"]).keys()
+        return super().__getitem__(DATA).keys()
 
     def items(self):
-        return super().__getitem__(DEFAULT["key_data"]).items()
+        return super().__getitem__(DATA).items()
 
 
 if __name__ == "__main__":

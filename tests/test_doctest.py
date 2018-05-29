@@ -16,7 +16,7 @@ import pathlib
 import doctest
 import unittest
 import subprocess
-from pytconfig import __about__
+from pytconfig.__about__ import __pkg_name__
 
 
 blacklist = ["__init__.py", "__about__.py", "__config__.py"]
@@ -39,7 +39,7 @@ class RunDocTest(unittest.TestCase):
             self.assertTrue(False)
 
 
-code_folder = '../' + __about__.__pkg_name__ + '/'
+code_folder = '../' + __pkg_name__ + '/'
 path = pathlib.Path(
     pathlib.PurePath(
         pathlib.Path(__file__).resolve().parent, code_folder)

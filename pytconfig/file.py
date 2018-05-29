@@ -12,6 +12,10 @@
 """
 
 import pathlib
+from pytconfig.exceptions import PytConfigFileNotFound
+
+
+__all__ = ["PytFile"]
 
 
 class PytFile(object):
@@ -20,11 +24,11 @@ class PytFile(object):
     >>> data_file = PytFile("lorem")
     Traceback (most recent call last):
     ...
-    OSError: File not found !
+    pytconfig.exceptions.PytConfigFileNotFound: File "lorem" not found!
     >>> data_file = PytFile(None)
     Traceback (most recent call last):
     ...
-    OSError: File not found !
+    pytconfig.exceptions.PytConfigFileNotFound: File "None" not found!
     >>> fstab = PytFile("/etc/fstab")
     >>> fstab.filename.stem
     'fstab'
@@ -63,8 +67,7 @@ class PytFile(object):
             self.__path = pathlib.Path(str(value)).resolve()
             self.__exists = True
         else:
-            self.__exists = False
-            raise IOError("File not found !")
+            raise PytConfigFileNotFound(value)
 
     def exists(self):
         """

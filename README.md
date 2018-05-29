@@ -73,44 +73,47 @@ print(len(config))
 - [X] Release : 0.1.7
 - [X] change (un)install process
 - [X] remove MANIFEST.in
-- [X] manage global var: __version__....
+- [X] manage global var: __ version __...
 - [X] improve the doc
 - [X] remove old tests
 - [X] Release : 0.1.9
 - [X] improve Makefile
 - [X] Release : 0.1.10
-
+- [X] Fix setup.py
+- [X] Fix setup.cfg
+- [X] Release : 1.1.0
 
 ## License
 
 This package is distributed under the [GPLv3 license](./LICENSE)
-
 ### Runtime
 
 ```
+
 python-3.6.x
 
-```
-### Requirements
 
 ```
-setuptools>=36.2.7
-pycodestyle>=2.3.1
 
-```
 ### UML Diagram
 ![alt text](pictures/classes_pytconfig.png)
 
+
 ### Objects
+
 [PytConfigFile()](#pytconfigfile)<br />
 [PytConfigFile.isjson()](#pytconfigfileisjson)<br />
 [PytConfigFile.isyaml()](#pytconfigfileisyaml)<br />
 [PytConfigFile.keys()](#pytconfigfilekeys)<br />
 [PytConfigFile.items()](#pytconfigfileitems)<br />
+[PytConfigError()](#pytconfigerror)<br />
+[PytConfigFileNotFound()](#pytconfigfilenotfound)<br />
+[PytConfigLoadError()](#pytconfigloaderror)<br />
 [PytFile()](#pytfile)<br />
 [@Property PytFile.filename](#property-pytfilefilename)<br />
 [PytFile.exists()](#pytfileexists)<br />
 [PytFile.read()](#pytfileread)<br />
+
 
 #### PytConfigFile()
 ```python
@@ -125,16 +128,16 @@ Use:
    >>> # pathlib to run the test everywhere
    >>> import pathlib
    >>> path = str(pathlib.Path(__file__).resolve().parent) + "/"
-   >>> cur_file = path + '../tests/facebook.jso'
+   >>> cur_file = '/etc/fst'
    >>> config = PytConfigFile(cur_file, PytConfigFile.isjson)
    Traceback (most recent call last):
    ...
-   OSError: File not found !
+   pytconfig.exceptions.PytConfigFileNotFound: File "/etc/fst" not found!
    >>> cur_file = path + '../LICENSE'
    >>> config = PytConfigFile(cur_file, PytConfigFile.isjson)
    Traceback (most recent call last):
    ...
-   ValueError: Can't load the file...
+   pytconfig.exceptions.PytConfigLoadError: Can't load the configuration...
    >>> cur_file = path + '../tests/facebook.json'
    >>> config = PytConfigFile(cur_file, PytConfigFile.isjson)
    >>> print(config['debug'])
@@ -185,6 +188,33 @@ def PytConfigFile.items(self):
 > <br />
 > None<br />
 > <br />
+#### PytConfigError()
+```python
+class PytConfigError(Exception):
+```
+
+```
+Generic exception for pytconfig
+```
+
+#### PytConfigFileNotFound()
+```python
+class PytConfigFileNotFound(PytConfigError):
+```
+
+```
+Config file is not found
+```
+
+#### PytConfigLoadError()
+```python
+class PytConfigLoadError(PytConfigError):
+```
+
+```
+Content cannot be loaded.
+```
+
 #### PytFile()
 ```python
 class PytFile(object):
@@ -194,11 +224,11 @@ class PytFile(object):
 >>> data_file = PytFile("lorem")
 Traceback (most recent call last):
 ...
-OSError: File not found !
+pytconfig.exceptions.PytConfigFileNotFound: File "lorem" not found!
 >>> data_file = PytFile(None)
 Traceback (most recent call last):
 ...
-OSError: File not found !
+pytconfig.exceptions.PytConfigFileNotFound: File "None" not found!
 >>> fstab = PytFile("/etc/fstab")
 >>> fstab.filename.stem
 'fstab'
@@ -242,4 +272,3 @@ def PytFile.read(self):
 > <br />
 > Read the content<br />
 > <br />
-
