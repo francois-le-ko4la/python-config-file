@@ -14,11 +14,13 @@ Test:
 """
 from setuptools import setup
 from setuptools.config import read_configuration
-import warnings
+import sys
 
 
-warnings.filterwarnings("ignore")
+if not sys.version_info[0] == 3:
+            sys.exit("Sorry, your Python is not supported (yet)")
+
 CFG = read_configuration('./setup.cfg')
 CFG["options"].update(CFG["metadata"])
 CFG = CFG["options"]
-setup(use_scm_version=True, **CFG)
+setup(**CFG)
